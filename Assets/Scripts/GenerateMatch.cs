@@ -485,8 +485,8 @@ public class GenerateMatch : MonoBehaviour
         matchGen.OnMatchEventHappend += OnEventHappend;
         matchGen.OnMatchFinished += OnMatchFinished;
         matchGen.OnMatchPaused += OnMatchPaused;
-        matchGen.OnTimeOut += OnTimeOut;
-        matchGen.OnPlayerInjured += OnPlayerInjured;
+        //matchGen.OnTimeOut += OnTimeOut;
+        //matchGen.OnPlayerInjured += OnPlayerInjured;
         //match.OnMatchTeamChanged += OnTeamChanged;
         //match.OnMatchEventHappend += OnEventHappend;
         _generateMatch = new Thread(matchGen.StartGenerating);
