@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: dff585d68179c7646adac3b7ee255ba6
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - HelveticaNeue LT 37 ThinCn
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 40e1f129b763a094a96db28d669ec61b, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

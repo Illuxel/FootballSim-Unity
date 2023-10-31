@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 1435cb41b50201b4f823f969dd585077
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - HelveticaNeue LT 27 UltLtCn
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: b02fed95cd5e2d24a8a407a3a21e0f01, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

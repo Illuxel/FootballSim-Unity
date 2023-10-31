@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 2e69be53413583745833589d9a964e70
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - HelveticaCyr Upright
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: c78fa592eb2f4954b943f111f09cb94d, type: 3}
+  - {fileID: 12800000, guid: 1c64275ffc721f749a5c5da5803f9e4c, type: 3}
+  - {fileID: 12800000, guid: 74797818ce067404689be7f94ddc8bb7, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

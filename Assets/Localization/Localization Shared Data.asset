@@ -1,0 +1,352 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Localization Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Localization
+  m_TableCollectionNameGuidString: 23651bc5e2820c94bb90283af8f5c652
+  m_Entries:
+  - m_Id: 312146081853440
+    m_Key: Contracts
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312206614048768
+    m_Key: Requests
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312244966764544
+    m_Key: Invest
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312300264468480
+    m_Key: Transfer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312437736976384
+    m_Key: Clubs
+    m_Metadata:
+      m_Items: []
+  - m_Id: 312458138071040
+    m_Key: Leagues
+    m_Metadata:
+      m_Items: []
+  - m_Id: 324109587427328
+    m_Key: NextMatch
+    m_Metadata:
+      m_Items: []
+  - m_Id: 338814498484224
+    m_Key: MyPlayers
+    m_Metadata:
+      m_Items: []
+  - m_Id: 353301087629312
+    m_Key: Continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 354025888526336
+    m_Key: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 357465477853184
+    m_Key: NewGame
+    m_Metadata:
+      m_Items: []
+  - m_Id: 357836120109056
+    m_Key: Saves
+    m_Metadata:
+      m_Items: []
+  - m_Id: 358371283939328
+    m_Key: Records
+    m_Metadata:
+      m_Items: []
+  - m_Id: 359547928817664
+    m_Key: Exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 366355145797632
+    m_Key: MyTeam
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1036883279982592
+    m_Key: Match
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1037551520690176
+    m_Key: GoalsFTS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1040671428554752
+    m_Key: TrainingMode
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1041163844038656
+    m_Key: TrainingMode2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1041349362298880
+    m_Key: TrainingMode3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1041461622845440
+    m_Key: TrainingMode4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1041890368794624
+    m_Key: TrainingMode1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1694312560832512
+    m_Key: Updates
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8166978708811776
+    m_Key: Statistic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11477221056425984
+    m_Key: NewGameScene/Canvas/Begin/NameText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11477380079267840
+    m_Key: 'NewGameScene/Canvas/Begin/SurnameText '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11477531619471360
+    m_Key: NewGameScene/Canvas/Begin/CountryText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11477736557359104
+    m_Key: NewGameScene/Canvas/Begin/Dropdown (Legacy)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11478123968442368
+    m_Key: NewGameScene/Canvas/Begin/Start/Text (Legacy)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11478703889690624
+    m_Key: ScoutScene/Canvas/Menu/MyPlayersButton/MyPlayersText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11479346192822272
+    m_Key: ScoutScene/Canvas/Menu/UpdatesButton /UpdatesText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11479830307778560
+    m_Key: ScoutScene/Canvas/Menu/StatisticButton/StatisticText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11483501313634304
+    m_Key: ScoutScene/Canvas/Menu/RequestsButton/RequestsText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11483828624535552
+    m_Key: ScoutScene/Canvas/Menu/NextMatchButton/Text (Legacy)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11484302899654656
+    m_Key: ManagerScene/Canvas/ManagerMenu/TeamButton/TeamText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11484642151739392
+    m_Key: ManagerScene/Canvas/ManagerMenu/StatisticButton/StatisticText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11484898973167616
+    m_Key: ManagerScene/Canvas/ManagerMenu/RequestButton/Text (TMP)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11485160924229632
+    m_Key: ManagerScene/Canvas/ManagerMenu/TrainingButton/Text (TMP)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11485413215809536
+    m_Key: TrainingModeCAPS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11485960517955584
+    m_Key: ManagerScene/Canvas/ManagerMenu/GoalsButton/GoalsText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11488064938684416
+    m_Key: ManagerScene/Canvas/MatchProgressWindow/Team2Players /Scroll View/Viewport/Content/Head/FootballPlayerName
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11489296159846400
+    m_Key: DirectorScene/Canvas/DirectorMenu/ContractsButton/ContractsText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11489615061168128
+    m_Key: DirectorScene/Canvas/DirectorMenu/RequestsButton/RequestsText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11489917021696000
+    m_Key: 'DirectorScene/Canvas/DirectorMenu/InvestButton/InvestText '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11490382853681152
+    m_Key: DirectorScene/Canvas/DirectorMenu/StatisticButton/StatisticText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11490696033972224
+    m_Key: DirectorScene/Canvas/DirectorMenu/TransferButton /TransferText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11494986223955968
+    m_Key: Confirm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11495943607398400
+    m_Key: BreakUp
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11496683583287296
+    m_Key: Sign
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11496872935141376
+    m_Key: ReSign
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24968906648387584
+    m_Key: Country
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38364597022162944
+    m_Key: BallControl
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38367095183179776
+    m_Key: BallInterception
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38367143270875136
+    m_Key: BallStrike
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38367209083699200
+    m_Key: FreeKick
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38367223449190400
+    m_Key: Penalty
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38367286103703552
+    m_Key: BallOut
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38367506656985088
+    m_Key: BallStrikeMissed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38367545307496448
+    m_Key: BallStrikeGoal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38367578966786048
+    m_Key: BallStrikeSafe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38367778347220992
+    m_Key: YellowCard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38367786169597952
+    m_Key: RedCard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38367825843519488
+    m_Key: PlayerInjury
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38983625608593408
+    m_Key: GoalPlayer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39080526546796544
+    m_Key: Leaguess
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39144777781149696
+    m_Key: MatchPaused
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43398346801741824
+    m_Key: ManagerScene/Canvas/MatchProgressWindow/GameMode
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43398426682261504
+    m_Key: ManagerScene/Canvas/MatchProgressWindow/GameMode 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43398431212109824
+    m_Key: ManagerScene/Canvas/MatchProgressWindow/GameMode 2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45868314273316864
+    m_Key: WinTeam
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45998391491276800
+    m_Key: Draw
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45999445209493504
+    m_Key: Working
+    m_Metadata:
+      m_Items: []
+  - m_Id: 53605959990489088
+    m_Key: MyPlay
+    m_Metadata:
+      m_Items: []
+  - m_Id: 69779470635216896
+    m_Key: Academy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 69779639128797184
+    m_Key: Scheme
+    m_Metadata:
+      m_Items: []
+  - m_Id: 69808740304662528
+    m_Key: Teamsmenu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 82484794935107584
+    m_Key: PlayerInjuryWarning
+    m_Metadata:
+      m_Items: []
+  - m_Id: 82560601091104768
+    m_Key: Attention
+    m_Metadata:
+      m_Items: []
+  - m_Id: 82566989162897408
+    m_Key: PlayerInjuryExeption
+    m_Metadata:
+      m_Items: []
+  - m_Id: 83944108178694144
+    m_Key: PlayerRedCardWarning
+    m_Metadata:
+      m_Items: []
+  - m_Id: 83944601567256576
+    m_Key: FirstHalfOverWarning
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 607054171811872772
+  references:
+    version: 2
+    RefIds:
+    - rid: 607054171811872772
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1677443596630

@@ -1,0 +1,332 @@
+[
+    {
+      "EventCode": "BallControl",
+      "EventDescription": "",
+      "Duration": 3,
+      "BaseEventLocation": "Center",
+      "IsBallIntercepted": false,
+      "NextEvents": [
+        {
+          "Strategy": "BallСontrol",
+          "HomePart": [
+            { "BallControl.Center": 50 },
+            { "BallControl.GuestPart": 22 },
+            { "BallInterception": 5 },
+            { "FreeKick": 10 },
+            { "BallOut": 8 }
+          ],
+          "Center": [
+            { "BallControl.GuestPart": 34 },
+            { "BallControl.HomePart": 8 },
+            { "BallInterception": 17 },
+            { "BallStrike": 5 },
+            { "FreeKick": 19 },
+            { "BallOut": 9 }
+          ],
+          "GuestPart": [
+            { "BallControl.HomePart": 3 },
+            { "BallControl.Center": 15 },
+            { "BallInterception": 26 },
+            { "BallStrike": 21 },
+            { "FreeKick": 16 },
+            { "Penalty": 10 },
+            { "BallOut": 5 }
+          ]
+        },
+        {
+          "Strategy": "DefenseAttack",
+          "HomePart": [
+            { "BallControl.Center": 20 },
+            { "BallControl.GuestPart": 30 },
+            { "BallInterception": 10 },
+            { "FreeKick": 10 },
+            { "BallOut": 10 }
+          ],
+          "Center": [
+            { "BallControl.GuestPart": 40 },
+            { "BallControl.HomePart": 4 },
+            { "BallInterception": 10 },
+            { "BallStrike": 4 },
+            { "FreeKick": 19 },
+            { "BallOut": 8 }
+          ],
+          "GuestPart": [
+            { "BallControl.Center": 8 },
+            { "BallInterception": 24 },
+            { "BallStrike": 32 },
+            { "FreeKick": 16 },
+            { "Penalty": 12 },
+            { "BallOut": 4 }
+          ]
+        },
+        {
+          "Strategy": "TotalPressing",
+          "HomePart": [
+            { "BallControl.Center": 38 },
+            { "BallControl.GuestPart": 35 },
+            { "BallInterception": 4 },
+            { "FreeKick": 10 },
+            { "BallOut": 9 }
+          ],
+          "Center": [
+            { "BallControl.HomePart": 8 },
+            { "BallControl.GuestPart": 36 },
+            { "BallInterception": 17 },
+            { "BallStrike": 4 },
+            { "FreeKick": 19 },
+            { "BallOut": 8 }
+          ],
+          "GuestPart": [
+            { "BallControl.HomePart": 3 },
+            { "BallControl.Center": 20 },
+            { "BallInterception": 24 },
+            { "BallStrike": 20 },
+            { "FreeKick": 15 },
+            { "Penalty": 10 },
+            { "BallOut": 4 }
+          ]
+        },
+        {
+          "Strategy": "TotalDefense",
+          "HomePart": [
+            { "BallControl.Center": 60 },
+            { "BallControl.GuestPart": 12 },
+            { "BallInterception": 5 },
+            { "FreeKick": 10 },
+            { "BallOut": 8 }
+          ],
+          "Center": [
+            { "BallControl.GuestPart": 19 },
+            { "BallControl.HomePart": 25 },
+            { "BallInterception": 22 },
+            { "BallStrike": 6 },
+            { "FreeKick": 13 },
+            { "BallOut": 7 }
+          ],
+          "GuestPart": [
+            { "BallControl.Center": 5 },
+            { "BallInterception": 24 },
+            { "BallStrike": 38 },
+            { "FreeKick": 15 },
+            { "Penalty": 10 },
+            { "BallOut": 4 }
+          ]
+        }
+      ]
+    },
+    {
+      "EventCode": "BallStrike",
+      "EventDescription": "",
+      "Duration": 2,
+      "BaseEventLocation": "GuestPart",
+      "IsBallIntercepted": false,
+      "NextEvents": [
+        {
+          "GuestPart": [
+            { "BallStrikeMissed": 41 },
+            { "BallStrikeGoal": 15 },
+            { "BallStrikeSafe": 44 }
+          ]
+        }
+      ]
+    },
+    {
+      "EventCode": "BallStrikeMissed",
+      "EventDescription": "",
+      "Duration": 1,
+      "BaseEventLocation": "GuestPart",
+      "IsBallIntercepted": true,
+      "NextEvents": [
+        {
+          "GuestPart": [
+            { "BallControl.Center": 100 }
+          ]
+        }
+      ]
+    },
+    {
+      "EventCode": "BallStrikeGoal",
+      "EventDescription": "",
+      "Duration": 1,
+      "BaseEventLocation": "GuestPart",
+      "IsBallIntercepted": true,
+      "NextEvents": [
+        {
+          "GuestPart": [
+            { "BallControl.Center": 100 }
+          ]
+        }
+      ]
+    },
+    {
+      "EventCode": "BallStrikeSafe",
+      "EventDescription": "",
+      "Duration": 1,
+      "BaseEventLocation": "GuestPart",
+      "IsBallIntercepted": true,
+      "NextEvents": [
+        {
+          "GuestPart": [
+            { "BallControl.GuestPart": 100 }
+          ]
+        }
+      ]
+    },
+    {
+      "EventCode": "BallInterception",
+      "EventDescription": "",
+      "Duration": 1,
+      "BaseEventLocation": "None",
+      "IsBallIntercepted": true,
+      "NextEvents": [
+        {
+          "HomePart": [
+            { "BallControl.Center": 100 }
+          ],
+          "Center": [
+            { "BallControl.Center": 100 }
+          ],
+          "GuestPart": [
+            { "BallControl.Center": 100 }
+          ]
+        }
+      ]
+    },
+    {
+      "EventCode": "BallOut",
+      "EventDescription": "",
+      "Duration": 1,
+      "BaseEventLocation": "None",
+      "IsBallIntercepted": false,
+      "NextEvents": [
+        {
+          "HomePart": [
+            { "BallControl.HomePart": 100 }
+          ],
+          "Center": [
+            { "BallControl.Center": 100 }
+          ],
+          "GuestPart": [
+            { "BallControl.GuestPart": 100 }
+          ]
+        }
+      ]
+    },
+    {
+      "EventCode": "Penalty",
+      "EventDescription": "",
+      "Duration": 2,
+      "BaseEventLocation": "None",
+      "IsBallIntercepted": false,
+      "NextEvents": [
+        {
+          "GuestPart": [
+            { "BallStrike": 100 }
+          ]
+        }
+      ],
+      "AdditionalEvents": [
+        {
+          "HomePart": [
+            { "YellowCard": 10 },
+            { "RedCard": 6 },
+            { "PlayerInjury": 5 }
+          ]
+        },
+        {
+          "Center": [
+            { "YellowCard": 7 },
+            { "RedCard": 3 },
+            { "PlayerInjury": 5 }
+          ]
+        },
+        {
+          "GuestPart": [
+            { "YellowCard": 7 },
+            { "RedCard": 2 },
+            { "PlayerInjury": 5 }
+          ]
+        }
+      ]
+    },
+    {
+      "EventCode": "FreeKick",
+      "EventDescription": "",
+      "Duration": 1,
+      "BaseEventLocation": "None",
+      "IsBallIntercepted": false,
+      "NextEvents": [
+        {
+          "HomePart": [
+            { "BallStrike": 2 },
+            { "BallControl.HomePart": 31 },
+            { "BallControl.Center": 32 },
+            { "BallControl.GuestPart": 20 },
+            { "BallInterception": 15 }
+          ]
+        },
+        {
+          "Center": [
+            { "BallStrike": 11 },
+            { "BallControl.HomePart": 8 },
+            { "BallControl.Center": 41 },
+            { "BallControl.GuestPart": 15 },
+            { "BallInterception": 25 }
+          ]
+        },
+        {
+          "GuestPart": [
+            { "BallStrike": 60 },
+            { "BallControl.HomePart": 0 },
+            { "BallControl.Center": 5 },
+            { "BallControl.GuestPart": 16 },
+            { "BallInterception": 19 }
+          ]
+        }
+      ],
+      "AdditionalEvents": [
+        {
+          "HomePart": [
+            { "YellowCard": 10 },
+            { "RedCard": 6 },
+            { "PlayerInjury": 2 }
+          ]
+        },
+        {
+          "Center": [
+            { "YellowCard": 7 },
+            { "RedCard": 3 },
+            { "PlayerInjury": 3 }
+          ]
+        },
+        {
+          "GuestPart": [
+            { "YellowCard": 7 },
+            { "RedCard": 2 },
+            { "PlayerInjury": 2 }
+          ]
+        }
+      ]
+    },
+    {
+      "EventCode": "PlayerInjury",
+      "EventDescription": "",
+      "Duration": 3,
+      "BaseEventLocation": "None",
+      "IsBallIntercepted": false
+    },
+    {
+      "EventCode": "RedCard",
+      "EventDescription": "",
+      "Duration": 0,
+      "BaseEventLocation": "None",
+      "IsBallIntercepted": false
+    },
+    {
+      "EventCode": "YellowCard",
+      "EventDescription": "",
+      "Duration": 0,
+      "BaseEventLocation": "None",
+      "IsBallIntercepted": false
+    }
+  ]
