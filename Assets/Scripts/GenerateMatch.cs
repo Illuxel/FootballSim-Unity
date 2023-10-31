@@ -53,9 +53,19 @@ public class GenerateMatch : MonoBehaviour
         _gameData = new PlayerGameData();
         _gameData.ClubId = _liverpoolId;
         _gameData.GameDate = _gameDateStr;
+<<<<<<< Updated upstream
         _saveInfo = new SaveInfo(_gameData, _saveName);        
         var settings =  new GenerateGameActionsToNextMatchSettings(Application.dataPath);
         var scenario = new GenerateGameActionsToNextMatch(_saveInfo, settings);
+=======
+        _saveInfo = new SaveInfo() 
+        { 
+            //SaveName = _saveName,
+            PlayerData = _gameData
+        };
+
+        var scenario = new GenerateGameActionsToNextMatch(_saveInfo);
+>>>>>>> Stashed changes
         scenario.SimulateActions();
 
         SelectSpeed.onValueChanged.AddListener(OnDropdownValueChanged);
