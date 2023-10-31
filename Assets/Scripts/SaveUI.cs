@@ -1,119 +1,79 @@
+using System.IO;
+using System.Collections.Generic;
+using System.Linq;
+
 using UnityEngine;
 using UnityEngine.UI;
-using DatabaseLayer.Services;
-using TMPro;
-using DatabaseLayer.Repositories;
-using DatabaseLayer;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using UnityEngine.SceneManagement;
+using TMPro;
+
+using DatabaseLayer;
+using DatabaseLayer.Repositories;
+using BusinessLogicLayer.Services;
+using DatabaseLayer.Enums;
 
 public class SaveUI : MonoBehaviour
 {
     private SaveInfo saveInfo;
-    public TextMeshProUGUI Savename;
-    public TextMeshProUGUI Clubname;
-    public TextMeshProUGUI Currentrole;
-    public TextMeshProUGUI Dateofcreation;
-    public TextMeshProUGUI Recentactivity;
+    public TextMeshProUGUI Savename, Clubname, Currentrole, Dateofcreation, Recentactivity;
     public SpriteRenderer clubSpriteRenderer;
     public Button[] SaveSlots;
     public Button[] DeleteSlots;
     public Button[] AddSave;
     public Button StartSave;
+
     public static string SaveNameSlot;
+
     void Start()
     {
+        var savesManager = SavesManager.GetInstance();
+        var saves = savesManager.GetAllSaves();
        
-        LoadGameManager loadGameManager = LoadGameManager.GetInstance();
-        int length = loadGameManager.GetAllSaves().Count;
-       
-        for (int i = 0; i < length; i++)
+        for (int i = 0; i < saves.Count; i++)
         {
-            Transform childObject = SaveSlots[i].transform.Find("ActiveFields");
+            var childObject = SaveSlots[i].transform.Find("ActiveFields");
             childObject.gameObject.SetActive(true);
             childObject = SaveSlots[i].transform.Find("NewSlotButton");
             childObject.gameObject.SetActive(false);
-            saveInfo = loadGameManager.GetAllSaves()[i];
-            TextMeshProUGUI SaveText = SaveSlots[i].transform.Find("ActiveFields/SavenameText").GetComponent<TextMeshProUGUI>();
-            SaveText.text = saveInfo.SaveName;
-            SaveText = SaveSlots[i].transform.Find("ActiveFields/SaveCreationDate").GetComponent<TextMeshProUGUI>();
-            SaveText.text = saveInfo.PlayerData.RealDate;
 
+            saveInfo = saves[i];
+
+            var saveText = SaveSlots[i].transform.Find("ActiveFields/SavenameText").GetComponent<TextMeshProUGUI>();
+            saveText.text = saveInfo.SaveName;
+            saveText.text = saveInfo.SaveDate.ToString();
+            saveText = SaveSlots[i].transform.Find("ActiveFields/SaveCreationDate").GetComponent<TextMeshProUGUI>();
+
+            SaveSlots[i].onClick.AddListener(() => SaveWindow(i));
+            DeleteSlots[i].onClick.AddListener(() => DeleteSave(i));
+            AddSave[i].onClick.AddListener(() => NewGame());
         }
-        
-        
-
-        SaveSlots[0].onClick.AddListener(() => SaveWindow(0));
-        SaveSlots[1].onClick.AddListener(() => SaveWindow(1));
-        SaveSlots[2].onClick.AddListener(() => SaveWindow(2));
-        SaveSlots[3].onClick.AddListener(() => SaveWindow(3));
-        SaveSlots[4].onClick.AddListener(() => SaveWindow(4));
-        SaveSlots[5].onClick.AddListener(() => SaveWindow(5));
-        SaveSlots[6].onClick.AddListener(() => SaveWindow(6));
-        SaveSlots[7].onClick.AddListener(() => SaveWindow(7));
-        SaveSlots[8].onClick.AddListener(() => SaveWindow(8));
-        SaveSlots[9].onClick.AddListener(() => SaveWindow(9));
-
-        DeleteSlots[0].onClick.AddListener(() => DeleteSave(0));
-        DeleteSlots[1].onClick.AddListener(() => DeleteSave(1));
-        DeleteSlots[2].onClick.AddListener(() => DeleteSave(2));
-        DeleteSlots[3].onClick.AddListener(() => DeleteSave(3));
-        DeleteSlots[4].onClick.AddListener(() => DeleteSave(4));
-        DeleteSlots[5].onClick.AddListener(() => DeleteSave(5));
-        DeleteSlots[6].onClick.AddListener(() => DeleteSave(6));
-        DeleteSlots[7].onClick.AddListener(() => DeleteSave(7));
-        DeleteSlots[8].onClick.AddListener(() => DeleteSave(8));
-        DeleteSlots[9].onClick.AddListener(() => DeleteSave(9));
-
-        AddSave[0].onClick.AddListener(() => NewGame());
-        AddSave[1].onClick.AddListener(() => NewGame());
-        AddSave[2].onClick.AddListener(() => NewGame());
-        AddSave[3].onClick.AddListener(() => NewGame());
-        AddSave[4].onClick.AddListener(() => NewGame());
-        AddSave[5].onClick.AddListener(() => NewGame());
-        AddSave[6].onClick.AddListener(() => NewGame());
-        AddSave[7].onClick.AddListener(() => NewGame());
-        AddSave[8].onClick.AddListener(() => NewGame());
-        AddSave[9].onClick.AddListener(() => NewGame());
-
     }
 
     void SaveWindow(int i)
     {
-        LoadGameManager loadGameManager = LoadGameManager.GetInstance();
-        saveInfo = loadGameManager.GetAllSaves()[i];
+        var savesManager = SavesManager.GetInstance();
+
+        saveInfo = savesManager.GetAllSaves()[i];
         Savename.text = saveInfo.SaveName;
-        TeamRepository teamRepository = new TeamRepository();
-        List<Team> teams = teamRepository.Retrieve();
-        string targetID = saveInfo.PlayerData.ClubId;
-        string targetClubName = null;
-        foreach (Team team in teams)
+
+        var team = new TeamRepository().Retrieve(saveInfo.UserGameData.ClubId);
+
+        Clubname.text = team.ExtName;
+
+        switch (saveInfo.UserGameData.Role)
         {
-            if (team.Id == targetID)
-            {
-                targetClubName = team.ExtName;
-                break;
-            }
-            
-        }
-        int role = ((int)saveInfo.PlayerData.Role);
-        switch (role)
-        {
-            case 0:
+            case UserRole.Scout:
                 Currentrole.text = "Scout";
                 break;
-            case 1:
+            case UserRole.Manager:
                 Currentrole.text = "Manager";
                 break;
-            case 2:
+            case UserRole.Director:
                 Currentrole.text = "Director";
                 break;
         }
-        Clubname.text = targetClubName;
 
-        string[] files = Directory.GetFiles("Assets/Resources/FCLogos/", targetClubName + ".png", SearchOption.AllDirectories);
+        string[] files = Directory.GetFiles("Assets/Resources/FCLogos/", team.ExtName + ".png", SearchOption.AllDirectories);
         string imagePath = files[0];
         string path = imagePath;
         path = path.Replace(".png", "");
@@ -124,19 +84,14 @@ public class SaveUI : MonoBehaviour
 
         if (clubSprite != null)
         {
-           
+         
             clubSpriteRenderer.sprite = clubSprite;
         }
-        else
-        {
-            Debug.LogError("������� ��� ����������� ����: " + targetClubName);
-        }
-        Recentactivity.text = saveInfo.PlayerData.GameDate;
-        Dateofcreation.text = saveInfo.PlayerData.RealDate;
+
+        Recentactivity.text = saveInfo.UserGameData.GameDate;
+        Dateofcreation.text = saveInfo.SaveDate.ToString();
 
         StartSave.onClick.AddListener(() => LoadSaveScene(i));
-
-
     }
 
     public void NewGame()
@@ -145,33 +100,32 @@ public class SaveUI : MonoBehaviour
     }
     void DeleteSave(int i)
     {
-        LoadGameManager loadGameManager = LoadGameManager.GetInstance();
-        saveInfo = loadGameManager.GetAllSaves()[i];
-        loadGameManager.Delete(saveInfo.SaveName);
+        var savesManager = SavesManager.GetInstance();
+        saveInfo = savesManager.GetAllSaves()[i];
+        savesManager.Delete(saveInfo.SaveName);
+
         Scene currentScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(currentScene.buildIndex);
-        
     }
 
     void LoadSaveScene(int i)
     {
-        LoadGameManager loadGameManager = LoadGameManager.GetInstance();
-        saveInfo = loadGameManager.GetAllSaves()[i];
+        var savesManager = SavesManager.GetInstance();
+        saveInfo = savesManager.GetAllSaves()[i];
         SaveNameSlot = saveInfo.SaveName;
-        int index = ((int)saveInfo.PlayerData.Role);
-       switch (index)
+
+        switch (saveInfo.UserGameData.Role)
         {
-            case 0:
-            SceneManager.LoadScene("ScoutScene");
+            case UserRole.Scout:
+                Currentrole.text = "Scout";
                 break;
-            case 1:
-                SceneManager.LoadScene("ManagerScene");
+            case UserRole.Manager:
+                Currentrole.text = "Manager";
                 break;
-            case 2:
-                SceneManager.LoadScene("DirectorScene");
+            case UserRole.Director:
+                Currentrole.text = "Director";
                 break;
         }
-     
     }
 }
 

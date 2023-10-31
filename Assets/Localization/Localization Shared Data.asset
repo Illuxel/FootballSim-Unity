@@ -319,26 +319,6 @@ MonoBehaviour:
     m_Key: Teamsmenu
     m_Metadata:
       m_Items: []
-  - m_Id: 82484794935107584
-    m_Key: PlayerInjuryWarning
-    m_Metadata:
-      m_Items: []
-  - m_Id: 82560601091104768
-    m_Key: Attention
-    m_Metadata:
-      m_Items: []
-  - m_Id: 82566989162897408
-    m_Key: PlayerInjuryExeption
-    m_Metadata:
-      m_Items: []
-  - m_Id: 83944108178694144
-    m_Key: PlayerRedCardWarning
-    m_Metadata:
-      m_Items: []
-  - m_Id: 83944601567256576
-    m_Key: FirstHalfOverWarning
-    m_Metadata:
-      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

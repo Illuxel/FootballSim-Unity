@@ -268,7 +268,8 @@ MonoBehaviour:
   - m_Id: 38367143270875136
     m_Localized: Strike on goal from {0}
     m_Metadata:
-      m_Items: []
+      m_Items:
+      - rid: 3503617217565556739
   - m_Id: 38367095183179776
     m_Localized: '{0} loses control of the ball'
     m_Metadata:
@@ -321,33 +322,10 @@ MonoBehaviour:
     m_Localized: TEAMS MENU
     m_Metadata:
       m_Items: []
-  - m_Id: 82484794935107584
-    m_Localized: You have a player who has been injured. To continue the match, you
-      need to replace the injured player with another
-    m_Metadata:
-      m_Items: []
-  - m_Id: 82560601091104768
-    m_Localized: Attention!
-    m_Metadata:
-      m_Items: []
-  - m_Id: 82566989162897408
-    m_Localized: You have an injured player in your scheme. Please replace him with
-      a healthy player
-    m_Metadata:
-      m_Items: []
-  - m_Id: 83944108178694144
-    m_Localized: You have a player who has received a red card. You need to make
-      a substitution
-    m_Metadata:
-      m_Items: []
-  - m_Id: 83944601567256576
-    m_Localized: The first half is over. If necessary, you can make substitutions
-    m_Metadata:
-      m_Items: []
   references:
     version: 2
     RefIds:
     - rid: 3503617217565556739
       type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
-        m_Entries: 0000b51bc5728a00
+        m_Entries: 0000b51bc5728a000000b5a9b64e8800

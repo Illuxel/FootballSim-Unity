@@ -9,18 +9,16 @@ using System;
 
 public class StatisticTeamsLoader : MonoBehaviour
 {
-    int leagueId = 1;
+    long leagueId = 1;
     string season = "2023/2024";
-    public GameObject headPrefab, ScorePrefab;
-    public Transform contentTransform, contentTransformScore, contentTransformAssist;
+    public GameObject headPrefab;
+    public Transform contentTransform;
     private NationalResultTable[] nationalResultTable;
-    public GoalAssistTracker goalAssistTracker;
     public TextMeshProUGUI NameLeagueText;
     private void Start()
     {
         /*TeamPositionCalculator teamPositionCalculator = new TeamPositionCalculator();
         teamPositionCalculator.CalculatePosition(season);*/
-        goalAssistTracker = new GoalAssistTracker();
         SetTable();
     }
     public void SetTable()
@@ -31,9 +29,6 @@ public class StatisticTeamsLoader : MonoBehaviour
         NationalResTabRepository nationalResTabRepository = new NationalResTabRepository();
         List<NationalResultTable> resultTable = nationalResTabRepository.Retrieve(leagueId, season);
         nationalResultTable = resultTable.ToArray();
-
-        List<PlayerStatistic> topGoalScorers = goalAssistTracker.GetTopGoalScorers(season, leagueId, 10);
-
         setNameLeague(leagueId);
         SortPlayersByPoints();       
     }
@@ -57,7 +52,7 @@ public class StatisticTeamsLoader : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
-        RefreshScrollViewScore();
+
         RefreshScrollView(sortedPlayers);
     }
     private void RefreshScrollView(NationalResultTable[] sortedColumn)
@@ -106,95 +101,6 @@ public class StatisticTeamsLoader : MonoBehaviour
             scoreConcededText.text = Convert.ToString(tableData.ScoredGoals) + " - " + Convert.ToString(tableData.MissedGoals);
             pointText.text = Convert.ToString(tableData.TotalPoints);
         }
-    }
-    private void RefreshScrollViewScore()
-    {
-        if (contentTransformScore != null)
-        {
-
-            foreach (Transform child in contentTransformScore)
-            {
-                Destroy(child.gameObject);
-            }
-
-            List<PlayerStatistic> topGoalScorers = goalAssistTracker.GetTopGoalScorers(season, leagueId, 10);
-            int i = 0;
-            foreach (var topGoalScorer in topGoalScorers)
-            {
-                GameObject headInstance = Instantiate(ScorePrefab, contentTransformScore);
-                Transform totalPlaceFrame1 = headInstance.transform.Find("TotalPlaceFrame1");
-                TextMeshProUGUI totalPlaceText1 = totalPlaceFrame1.Find("TotalPlaceNumber1").GetComponent<TextMeshProUGUI>();
-
-                Transform clubNameFrame1 = headInstance.transform.Find("ClubFrame1");
-                TextMeshProUGUI clubNameText1 = clubNameFrame1.Find("ClubName1").GetComponent<TextMeshProUGUI>();
-
-                Transform nameFrame = headInstance.transform.Find("NameFrame");
-                TextMeshProUGUI nameText = nameFrame.Find("Name").GetComponent<TextMeshProUGUI>();
-                TextMeshProUGUI playerID = nameFrame.Find("PlayerID").GetComponent<TextMeshProUGUI>();
-
-                Transform goalFrame = headInstance.transform.Find("GoalFrame");
-                TextMeshProUGUI goalText = goalFrame.Find("GoalNumber").GetComponent<TextMeshProUGUI>();
-
-                Transform matchFrame = headInstance.transform.Find("MatchFrame");
-                TextMeshProUGUI matchText = matchFrame.Find("MatchNumber").GetComponent<TextMeshProUGUI>();
-
-
-                i++;
-                totalPlaceText1.text = i.ToString();
-                clubNameText1.text = CurrentContract(topGoalScorer.Player.ContractID).Team.Name;
-                nameText.text = topGoalScorer.Player.Person.Name + " " + topGoalScorer.Player.Person.Surname;
-                playerID.text = topGoalScorer.PlayerId;
-                goalText.text = Convert.ToString(topGoalScorer.CountOfGoals);
-                matchText.text = Convert.ToString(topGoalScorer.CountOfPlayedMatches);
-            }
-        }
-        if (contentTransformAssist != null)
-        {
-
-            foreach (Transform child in contentTransformAssist)
-            {
-                Destroy(child.gameObject);
-            }
-            var topAssists = goalAssistTracker.GetTopAssists(season, leagueId, 10);
-            int i = 0;
-
-            foreach (var topAssist in topAssists)
-            {
-                GameObject headInstance = Instantiate(ScorePrefab, contentTransformAssist);
-
-                Transform totalPlaceFrame1 = headInstance.transform.Find("TotalPlaceFrame1");
-                TextMeshProUGUI totalPlaceText1 = totalPlaceFrame1.Find("TotalPlaceNumber1").GetComponent<TextMeshProUGUI>();
-
-                Transform clubNameFrame1 = headInstance.transform.Find("ClubFrame1");
-                TextMeshProUGUI clubNameText1 = clubNameFrame1.Find("ClubName1").GetComponent<TextMeshProUGUI>();
-
-                Transform nameFrame = headInstance.transform.Find("NameFrame");
-                TextMeshProUGUI nameText = nameFrame.Find("Name").GetComponent<TextMeshProUGUI>();
-                TextMeshProUGUI playerID = nameFrame.Find("PlayerID").GetComponent<TextMeshProUGUI>();
-
-                Transform goalFrame = headInstance.transform.Find("GoalFrame");
-                TextMeshProUGUI goalText = goalFrame.Find("GoalNumber").GetComponent<TextMeshProUGUI>();
-
-                Transform matchFrame = headInstance.transform.Find("MatchFrame");
-                TextMeshProUGUI matchText = matchFrame.Find("MatchNumber").GetComponent<TextMeshProUGUI>();
-                i++;
-
-                totalPlaceText1.text = i.ToString();
-                clubNameText1.text = CurrentContract(topAssist.Player.ContractID).Team.Name;
-                nameText.text = topAssist.Player.Person.Name + " " + topAssist.Player.Person.Surname;
-                playerID.text = topAssist.PlayerId;
-                goalText.text = Convert.ToString(topAssist.CountOfAssists);
-                matchText.text = Convert.ToString(topAssist.CountOfPlayedMatches);
-            }
-        }
-    }
-
-    public static Contract CurrentContract(string playerId)
-    {
-
-        var contractRep = new ContractRepository();
-        Contract contract = contractRep.RetrieveOne(playerId);        
-        return contract;
     }
     public void LeftButtonClick()
     {

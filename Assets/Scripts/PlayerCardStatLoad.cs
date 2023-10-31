@@ -4,14 +4,12 @@ using BusinessLogicLayer.Services;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Localization.Settings;
 
 public class PlayerCardStatLoad : MonoBehaviour
 {
     public GameObject PlayerCardPrefab;
     public Transform PlayerContent;
     public TextMeshProUGUI TeamId;
-    public TextMeshProUGUI WindowName;
     public void OnTeamNameClicked(string teamName)
     {     
         Transform myPlayersCanvas = GameObject.Find("Canvas").GetComponent<Transform>();
@@ -25,14 +23,6 @@ public class PlayerCardStatLoad : MonoBehaviour
         CloseButton.gameObject.SetActive(true);
         CloseButtonCanvas.gameObject.SetActive(false);
         SetPlayers(TeamId.text);
-    }
-    public void SetAcademyName()
-    {
-        WindowName.text = LocalizationSettings.StringDatabase.GetLocalizedString("Academy");
-    }
-    public void SetTeamName()
-    {
-        WindowName.text = LocalizationSettings.StringDatabase.GetLocalizedString("MyTeam");
     }
     string FormatCurrency(int value)
     {

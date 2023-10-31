@@ -6,19 +6,18 @@ using static MenuManager;
 
 public class ShowCongratulationWindow : MonoBehaviour
 {
-    public GameObject congratulationWindow, Button;
-   
+    public GameObject congratulationWindow;
     private void Start()
-    {       
+    {
+        //Debug.Log(MenuManager.Show);
+        //Debug.Log("1");
         if (MenuManager.Show == true)
         {
             congratulationWindow.SetActive(true);
-            Button.SetActive(true);
         }
         else
         {
             congratulationWindow.SetActive(false);
-            Button.SetActive(false);
         }
     }
 }

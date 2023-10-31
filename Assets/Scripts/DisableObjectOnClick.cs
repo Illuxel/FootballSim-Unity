@@ -25,10 +25,6 @@ public class DisableObjectOnClick : MonoBehaviour
             }
         }
     }
-    public void DisableObject()
-    {
-        gameObject.SetActive(false);
-    }
 }
 
 

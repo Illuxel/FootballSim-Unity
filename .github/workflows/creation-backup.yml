@@ -1,0 +1,21 @@
+name: Main branch backup
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Backup main branch
+        run: |
+          mkdir -p backups
+          git archive -o backups/main-$(date +%Y%m%d%H%M%S).tar.gz HEAD
+      - name: Upload backup
+        uses: actions/upload-artifact@v2
+        with:
+          name: main-backup
+          path: backups/main-*.tar.gz
